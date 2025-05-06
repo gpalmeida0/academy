@@ -12,5 +12,5 @@ runs:
       run: docker tag ${{inputs.docker_image_reference}} ${{inputs.docker_username}}/${{inputs.docker_image_reference}}
       shell: bash
     - name: ' Push Docker image'
-      run: docker image push
+      run: docker push ${{inputs.docker_username}}/${{inputs.docker_image_reference}}
       shell: bash
