@@ -1,0 +1,16 @@
+name: Create Docker Image
+description: It will run the docker file and create our docker image
+inputs:
+  docker_username:
+    description: "Docker username"
+  docker_image_reference:
+    description: "Docker image reference"
+runs:
+  using: composite
+  steps:
+    - name: 'Tag the Docker image'
+      run: docker tag ${{inputs.docker_image_reference}} ${{inputs.docker_username}}/${{inputs.docker_image_reference}}
+      shell: bash
+    - name: ' Push Docker image'
+      run: docker image push
+      shell: bash
