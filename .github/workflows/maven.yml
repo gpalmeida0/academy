@@ -52,7 +52,7 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4
       with:
-        name: $artifact_name
+        name: ${{env.artifact_name}}
     - name: 'Load Docker image'
       run: docker load -i "${{env.docker_image_name}}.tar"
     - uses: actions/checkout@v4
