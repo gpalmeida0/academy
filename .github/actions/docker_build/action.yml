@@ -1,0 +1,12 @@
+name: Create Docker Image
+description: It will run the docker file and create our docker image
+inputs:
+  replace_with_your_input_name:
+    description: "Replace-With-Your-Input-Description"
+    required: false
+    default: "Replace-With-Your-Input-Default-Value"
+runs:
+  using: composite
+  steps:
+    - run: docker build . --file Dockerfile --tag academy:$(date +%s)
+      shell: bash
