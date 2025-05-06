@@ -52,6 +52,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Install dependencies
+      run: npm ci
+    - name: Connect to PostgreSQL
+      run: node client.js
+      env:
+        POSTGRES_HOST: localhost
+        POSTGRES_PORT: 5432
     - name: Build with Maven
       uses: ./.github/actions/maven_build
     - name: Create new Docker Image
