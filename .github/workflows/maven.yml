@@ -31,5 +31,8 @@ jobs:
       uses: ./.github/actions/maven_build
     - name: Create new Docker Image
       uses: ./.github/actions/docker_build
+      with:
+        image_name: 'academy-custom'
+        tag_name: 'cabelo'
     - name: List Docker Images
       run: docker image ls
